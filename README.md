@@ -25,3 +25,9 @@ To disable creating backups pass `--no-backup` flag:
 ```sh
 assfix 'subtitle.ass' 'Your Font Name' --no-backup
 ```
+
+## Possible future improvements and features
+
+- Use in browser
+- Fix font for specific styles
+- Fix more: bold, italic, etc
