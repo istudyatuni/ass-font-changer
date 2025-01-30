@@ -15,7 +15,7 @@ fn main() -> Result<()> {
         glob::glob("./*.ass")
             .context("failed to find .ass files in current directory")?
             .map(|res| res.map_err(Into::into))
-            .collect::<Result<Vec<_>>>()?
+            .collect::<Result<_>>()?
     } else {
         vec![path]
     };
