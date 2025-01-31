@@ -16,6 +16,9 @@ assfix 'subtitle.ass' 'Your Font Name'
 
 # Fix all .ass files in directory
 assfix ./path/to/dir 'Your Font Name'
+
+# Fix all .ass files from "dir" and write to "target" directory
+assfix ./dir 'Your Font Name' --target ./target
 ```
 
 This will change font for all styles in `[V4+ Styles]` table. Backup of original files will be created, e.g. for `subtitle.ass`: `subtitle.ass.bak`
