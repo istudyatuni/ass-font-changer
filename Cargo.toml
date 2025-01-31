@@ -1,5 +1,5 @@
 [package]
-name = "ass-font-changer"
+name = "ass-style-changer"
 version = "0.1.0"
 edition = "2021"
 

@@ -5,7 +5,7 @@ Do you want to watch movie with subtitles, but don't want to download extra font
 ## Installation
 
 ```sh
-cargo install --git https://github.com/istudyatuni/ass-font-changer --locked
+cargo install --git https://github.com/istudyatuni/ass-style-changer --locked
 ```
 
 ## Usage
