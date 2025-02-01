@@ -18,6 +18,12 @@ fn main() -> Result<()> {
     // do not backup when target specified
     let no_backup = target.is_some() || no_backup;
 
+    if let Some(t) = &target {
+        if !t.exists() {
+            std::fs::create_dir_all(t).context("failed to create target directory")?;
+        }
+    }
+
     let paths = if path.is_dir() {
         glob::glob("./*.ass")
             .context("failed to find .ass files in current directory")?
