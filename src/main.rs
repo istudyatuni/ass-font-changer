@@ -6,12 +6,12 @@ use clap::{Parser, ValueHint};
 use ass_style_changer::fix_file;
 
 fn main() -> Result<()> {
-    let Cli {
+    let Cli::Fix(FixArgs {
         path,
         font,
         no_backup,
         target,
-    } = Cli::parse();
+    }) = Cli::parse();
 
     let cur_dir = std::env::current_dir().context("failed to get current directory")?;
     let target = target.map(|t| cur_dir.join(t));
@@ -60,7 +60,12 @@ fn main() -> Result<()> {
 }
 
 #[derive(Debug, Parser)]
-struct Cli {
+enum Cli {
+    Fix(FixArgs),
+}
+
+#[derive(Debug, Parser)]
+struct FixArgs {
     /// Path to .ass file or directory with .ass files
     #[clap(value_hint = ValueHint::AnyPath)]
     path: PathBuf,

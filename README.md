@@ -12,13 +12,13 @@ cargo install --git https://github.com/istudyatuni/ass-style-changer --locked
 
 ```sh
 # Fix single file
-assfix 'subtitle.ass' --font 'Your Font Name'
+assfix fix 'subtitle.ass' --font 'Your Font Name'
 
 # Fix all .ass files in directory
-assfix ./path/to/dir --font 'Your Font Name'
+assfix fix ./path/to/dir --font 'Your Font Name'
 
 # Fix all .ass files from "dir" and write to "target" directory
-assfix ./dir --font 'Your Font Name' --target ./target
+assfix fix ./dir --font 'Your Font Name' --target ./target
 ```
 
 This will change font for all styles in `[V4+ Styles]` table. Backup of original files will be created, e.g. for `subtitle.ass`: `subtitle.ass.bak`
@@ -26,7 +26,7 @@ This will change font for all styles in `[V4+ Styles]` table. Backup of original
 To disable creating backups pass `--no-backup` flag:
 
 ```sh
-assfix 'subtitle.ass' --font 'Your Font Name' --no-backup
+assfix fix 'subtitle.ass' --font 'Your Font Name' --no-backup
 ```
 
 ## Possible future improvements and features
