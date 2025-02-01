@@ -61,6 +61,7 @@ struct Cli {
     #[clap(value_hint = ValueHint::AnyPath)]
     path: PathBuf,
     /// Font name to set
+    #[clap(long)]
     font: String,
     /// Do not create backup files
     #[clap(long)]
