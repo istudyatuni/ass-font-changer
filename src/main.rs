@@ -1,8 +1,9 @@
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
 use anyhow::{bail, Context, Result};
-use aspasia::{AssSubtitle, Subtitle};
 use clap::{Parser, ValueHint};
+
+use ass_style_changer::fix_file;
 
 fn main() -> Result<()> {
     let Cli {
@@ -73,17 +74,4 @@ struct Cli {
     /// original files. Implies `--no-backup`
     #[clap(long)]
     target: Option<PathBuf>,
-}
-
-fn fix_file(from: &Path, to: &Path, font: &str) -> Result<()> {
-    let mut ass = AssSubtitle::from_path(from)
-        .with_context(|| format!("failed to read {}", from.display()))?;
-
-    ass.styles_mut()
-        .iter_mut()
-        .for_each(|s| s.fontname = font.to_string());
-
-    ass.export(to)?;
-
-    Ok(())
 }
