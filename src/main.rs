@@ -1,6 +1,6 @@
 use std::path::{Path, PathBuf};
 
-use anyhow::{Context, Result};
+use anyhow::{bail, Context, Result};
 use aspasia::{AssSubtitle, Subtitle};
 use clap::{Parser, ValueHint};
 
@@ -30,6 +30,9 @@ fn main() -> Result<()> {
             .map(|res| res.map_err(Into::into))
             .collect::<Result<_>>()?
     } else {
+        if path.extension().is_some_and(|ext| ext != "ass") {
+            bail!("file is not .ass file");
+        }
         vec![path]
     };
 
