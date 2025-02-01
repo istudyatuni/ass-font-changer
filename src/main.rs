@@ -6,12 +6,18 @@ use clap::{Parser, ValueHint};
 use ass_style_changer::fix_file;
 
 fn main() -> Result<()> {
-    let Cli::Fix(FixArgs {
+    match Cli::parse() {
+        Cli::Fix(args) => fix(args),
+    }
+}
+
+fn fix(args: FixArgs) -> Result<()> {
+    let FixArgs {
         path,
         font,
         no_backup,
         target,
-    }) = Cli::parse();
+    } = args;
 
     let cur_dir = std::env::current_dir().context("failed to get current directory")?;
     let target = target.map(|t| cur_dir.join(t));
